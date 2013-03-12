@@ -1,7 +1,7 @@
 {
   "name": "load-script",
   "repo": "eldargab/load-script",
-  "description": "Simple dynamic script loading",
+  "description": "Dynamic script loading",
   "version": "0.0.1",
   "keywords": ["script", "load"],
   "license": "MIT",
