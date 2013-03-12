@@ -2,7 +2,10 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>load-script</title>
   <script type="text/javascript" src="../build/build.js"></script>
+</head>
+<body>
   <script>
     function log (msg) {
       var p = document.createElement('p')
@@ -13,14 +16,16 @@
     var load = require('load-script')
 
     load('hello.js', function (err) {
-      err ? log(err) : log('Hello done')
+      err ? log('FAIL: ' + err) : log('OK: Hello world done')
     })
 
     load('unexistent.js', function (err) {
-      err ? log(err) : log('Something went wrong')
+      err ? log('OK: ' + err) : log('FAIL: fail to load error not reported')
+    })
+
+    load('throw.js', function (err) {
+      err ? log('Script errors should not be reported') : log('OK: Script error not reported')
     })
   </script>
-</head>
-<body>
 </body>
 </html>
