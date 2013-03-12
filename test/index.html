@@ -1,0 +1,26 @@
+<!DOCTYPE 5>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script type="text/javascript" src="../build/build.js"></script>
+  <script>
+    function log (msg) {
+      var p = document.createElement('p')
+      p.innerHTML = msg
+      document.body.appendChild(p)
+    }
+
+    var load = require('load-script')
+
+    load('hello.js', function (err) {
+      err ? log(err) : log('Hello done')
+    })
+
+    load('unexistent.js', function (err) {
+      err ? log(err) : log('Something went wrong')
+    })
+  </script>
+</head>
+<body>
+</body>
+</html>

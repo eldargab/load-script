@@ -1,0 +1,11 @@
+{
+  "name": "load-script",
+  "repo": "eldargab/load-script",
+  "description": "Simple dynamic script loading",
+  "version": "0.0.1",
+  "keywords": ["script", "load"],
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
