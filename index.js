@@ -17,11 +17,14 @@ module.exports = function load (src, cb) {
 }
 
 function stdOnEnd (script, cb) {
-  cb = once(cb) // IE fires load event after error
   script.onload = function () {
+    this.onerror = this.onload = null
     cb()
   }
   script.onerror = function () {
+    // this.onload = null here is necessary
+    // because even IE9 works not like others
+    this.onerror = this.onload = null
     cb(new Error('Failed to load ' + this.src))
   }
 }
@@ -31,14 +34,5 @@ function ieOnEnd (script, cb) {
     if (this.readyState != 'complete') return
     this.onreadystatechange = null
     cb() // there is no way to catch loading errors in IE8
-  }
-}
-
-function once (fn) {
-  var done = false
-  return function () {
-    if (done) return
-    done = true
-    fn.apply(this, arguments)
   }
 }
