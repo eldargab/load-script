@@ -1,7 +1,7 @@
 {
   "name": "load-script",
   "description": "Dynamic script loading for browser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": ["browser", "script", "load"],
   "repository": {
     "type": "git",
