@@ -4,8 +4,16 @@ Dynamic script loading.
 
 ## Installation
 
+via component
+
 ```
 $ component install eldargab/load-script
+```
+
+via npm
+
+```
+$ npm install load-script
 ```
 
 ## API

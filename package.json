@@ -1,0 +1,16 @@
+{
+  "name": "load-script",
+  "description": "Dynamic script loading for browser",
+  "version": "0.0.2",
+  "keywords": ["browser", "script", "load"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eldargab/load-script"
+  },
+  "license": "MIT",
+  "component": {
+    "scripts": {
+      "load-script/index.js": "index.js"
+    }
+  }
+}
