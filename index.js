@@ -13,6 +13,13 @@ module.exports = function load (src, cb) {
     onend(script, cb)
   }
 
+  // some good legacy browsers (firefox) fail the 'in' detection above
+  // so as a fallback we always set onload
+  // old IE will ignore this and new IE will set onload
+  if (!script.onload) {
+    stdOnEnd(script, cb);
+  }
+
   head.appendChild(script)
 }
 
