@@ -1,8 +1,12 @@
 {
   "name": "load-script",
   "description": "Dynamic script loading for browser",
-  "version": "0.0.3",
-  "keywords": ["browser", "script", "load"],
+  "version": "0.0.4",
+  "keywords": [
+    "browser",
+    "script",
+    "load"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/eldargab/load-script"
