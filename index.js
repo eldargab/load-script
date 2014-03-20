@@ -3,15 +3,15 @@ module.exports = function load (src, cb) {
   var head = document.head || document.getElementsByTagName('head')[0]
   var script = document.createElement('script')
 
+  cb || cb = function() { }
+
   script.type = 'text/javascript'
   script.charset = 'utf8'
   script.async = true
   script.src = src
 
-  if (cb) {
-    var onend = 'onload' in script ? stdOnEnd : ieOnEnd
-    onend(script, cb)
-  }
+  var onend = 'onload' in script ? stdOnEnd : ieOnEnd
+  onend(script, cb)
 
   // some good legacy browsers (firefox) fail the 'in' detection above
   // so as a fallback we always set onload
