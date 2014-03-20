@@ -3,7 +3,6 @@ module.exports = function load (src, cb) {
   var head = document.head || document.getElementsByTagName('head')[0]
   var script = document.createElement('script')
 
-  script.type = 'text/javascript'
   script.charset = 'utf8'
   script.async = true
   script.src = src
