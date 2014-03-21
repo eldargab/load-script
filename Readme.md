@@ -20,9 +20,11 @@ $ npm install load-script
 
 ```javascript
 var load = require('load-script')
+
 load('foo.js', function (err) {
   if (err) {
     // print useful message
+  }
   else {
     // use script
     // note that in IE8 and below loading error wouldn't be reported
