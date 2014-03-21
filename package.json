@@ -11,6 +11,13 @@
     "type": "git",
     "url": "git://github.com/eldargab/load-script"
   },
+  "scripts": {
+    "test": "zuul -- test/index.js",
+    "test-local": "zuul --local 9005 -- test/index.js"
+  },
+  "devDependencies": {
+    "zuul": "~1.5.4"
+  },
   "license": "MIT",
   "component": {
     "scripts": {
