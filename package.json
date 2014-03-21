@@ -18,10 +18,5 @@
   "devDependencies": {
     "zuul": "~1.5.4"
   },
-  "license": "MIT",
-  "component": {
-    "scripts": {
-      "load-script/index.js": "index.js"
-    }
-  }
+  "license": "MIT"
 }
