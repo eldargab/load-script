@@ -1,7 +1,7 @@
 {
   "name": "load-script",
   "description": "Dynamic script loading for browser",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "keywords": [
     "browser",
     "script",
