@@ -3,7 +3,7 @@ module.exports = function load (src, cb) {
   var head = document.head || document.getElementsByTagName('head')[0]
   var script = document.createElement('script')
 
-  cb || cb = function() { }
+  cb = cb || function() {};
 
   script.type = 'text/javascript'
   script.charset = 'utf8'
