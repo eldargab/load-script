@@ -21,7 +21,7 @@ module.exports = function load (src, opts, cb) {
   }
 
   if (opts.text) {
-    script.appendChild(document.createTextNode(opts.text))
+    script.text = '' + opts.text
   }
 
   var onend = 'onload' in script ? stdOnEnd : ieOnEnd
