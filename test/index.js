@@ -15,6 +15,47 @@ test('success', function(done) {
   })
 });
 
+test('opts.async', function(done) {
+  load('test/hello.js', {async: false}, function(err, script) {
+    assert.ifError(err);
+    assert.equal(script.async, false);
+    done();
+  })
+});
+
+test('opts.attrs', function(done) {
+  load('test/hello.js', {attrs: {foo: 'boo'}}, function(err, script) {
+    assert.ifError(err);
+    assert.equal(script.getAttribute('foo'), 'boo');
+    done();
+  })
+});
+
+test('opts.charset', function(done) {
+  load('test/hello.js', {charset: 'iso-8859-1'}, function(err, script) {
+    assert.ifError(err);
+    assert.equal(script.charset, 'iso-8859-1');
+    done();
+  })
+});
+
+test('opts.text', function(done) {
+  load('test/hello.js', {text: 'foo'}, function(err, script) {
+    assert.ifError(err);
+    assert.equal(script.childNodes.length, 1);
+    assert.equal(script.childNodes[0].nodeValue, 'foo');
+    done();
+  })
+});
+
+test('opts.type', function(done) {
+  load('test/hello.js', {type: 'text/ecmascript'}, function(err, script) {
+    assert.ifError(err);
+    assert.equal(script.type, 'text/ecmascript');
+    done();
+  })
+});
+
 test('no exist', function(done) {
   load('unexistent.js', function (err, legacy) {
     if (!legacy) {
