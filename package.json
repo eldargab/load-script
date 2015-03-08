@@ -16,7 +16,7 @@
     "test-local": "zuul --local 9005 -- test/index.js"
   },
   "devDependencies": {
-    "zuul": "~1.5.4"
+    "zuul": "~2.1.0"
   },
   "license": "MIT"
 }
