@@ -11,6 +11,11 @@ module.exports = function load (src, opts, cb) {
   opts = opts || {}
   cb = cb || function() {}
 
+  // Throw error if Document already has script loaded.
+  if (containsScript(src)) {
+    cb(new Error('Script already loaded with src: ' + src))
+    return
+  }
   script.type = opts.type || 'text/javascript'
   script.charset = opts.charset || 'utf8';
   script.async = 'async' in opts ? !!opts.async : true
@@ -62,4 +67,17 @@ function ieOnEnd (script, cb) {
     this.onreadystatechange = null
     cb(null, script) // there is no way to catch loading errors in IE8
   }
+}
+
+
+function containsScript(src) {
+  var script;
+  var scripts = document.scripts;
+  for (var i = 0; i <= scripts.length; i++) {
+    script = scripts[i];
+    if (script && script.src && script.src == src) {
+      return true
+    }
+  }
+  return false
 }
