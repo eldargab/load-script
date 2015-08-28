@@ -24,6 +24,23 @@ module.exports = function load (src, opts, cb) {
     script.text = '' + opts.text
   }
 
+  setCallback(script, cb);
+  head.appendChild(script);
+
+  // Return an abort function
+  return function() {
+    setCallback(script, function() {})
+    script.parentElement.removeChild(script)
+  }
+}
+
+function setAttributes(script, attrs) {
+  for (var attr in attrs) {
+    script.setAttribute(attr, attrs[attr]);
+  }
+}
+
+function setCallback(script, cb) {
   var onend = 'onload' in script ? stdOnEnd : ieOnEnd
   onend(script, cb)
 
@@ -32,14 +49,6 @@ module.exports = function load (src, opts, cb) {
   // old IE will ignore this and new IE will set onload
   if (!script.onload) {
     stdOnEnd(script, cb);
-  }
-
-  head.appendChild(script)
-}
-
-function setAttributes(script, attrs) {
-  for (var attr in attrs) {
-    script.setAttribute(attr, attrs[attr]);
   }
 }
 

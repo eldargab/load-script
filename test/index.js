@@ -64,7 +64,7 @@ test('no exist', function(done) {
       done();
     }, 200);
 
-    // some browsers will also throw as well as report erro
+    // some browsers will also throw as well as report error
     var old = window.onerror;
     window.onerror = function(msg, file, line) {
       if (msg !== 'Error loading script') {
@@ -88,3 +88,10 @@ test('throw', function(done) {
   })
 });
 
+test('abort', function() {
+  var scriptsBefore = document.querySelectorAll('script[src="test/hello.js"]').length;
+  load('test/hello.js', function () {
+    assert.fail('Callback not called', 'Callback called');
+  })();
+  assert.equal(document.querySelectorAll('script[src="test/hello.js"]').length, scriptsBefore);
+});
