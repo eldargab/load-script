@@ -6,6 +6,13 @@ log = function(msg) {
   last_msg = msg;
 }
 
+afterEach(function() {
+    var script = document.querySelector('script[src^="test/"]');
+    if (script) {
+        script.remove();
+    }
+});
+
 test('success', function(done) {
   load('test/hello.js', function (err) {
     assert.ifError(err);
@@ -88,3 +95,12 @@ test('throw', function(done) {
   })
 });
 
+test('throw error if duplicate script', function(done) {
+  load('test/hello.js', function(err) {
+    if (err) { done(err); }
+    load('test/hello.js', function (error) {
+      assert.ifError(error);
+      done();
+    });
+  });
+});
