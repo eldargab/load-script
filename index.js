@@ -1,3 +1,4 @@
+var document = require('global/document')
 
 module.exports = function load (src, opts, cb) {
   var head = document.head || document.getElementsByTagName('head')[0]

@@ -18,5 +18,8 @@
   "devDependencies": {
     "zuul": "~2.1.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "global": "~4.3.2"
+  }
 }
