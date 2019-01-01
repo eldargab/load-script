@@ -48,11 +48,11 @@ function stdOnEnd (script, cb) {
     this.onerror = this.onload = null
     cb(null, script)
   }
-  script.onerror = function () {
+  script.onerror = function (err) {
     // this.onload = null here is necessary
     // because even IE9 works not like others
     this.onerror = this.onload = null
-    cb(new Error('Failed to load ' + this.src), script)
+    cb(new Error('Failed to load ' + this.src + ' Error: ' + err), script)
   }
 }
 
