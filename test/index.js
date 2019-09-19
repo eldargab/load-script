@@ -23,6 +23,22 @@ test('opts.async', function(done) {
   })
 });
 
+test('opts.defer.true', function(done) {
+  load('test/hello.js', {defer: true}, function(err, script) {
+    assert.ifError(err);
+    assert.equal(script.defer, true);
+    done();
+  })
+});
+
+test('opts.defer.false', function(done) {
+  load('test/hello.js', {defer: false}, function(err, script) {
+    assert.ifError(err);
+    assert.equal(script.defer, false);
+    done();
+  })
+});
+
 test('opts.attrs', function(done) {
   load('test/hello.js', {attrs: {foo: 'boo'}}, function(err, script) {
     assert.ifError(err);
