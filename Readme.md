@@ -28,6 +28,7 @@ Any url that you would like to load.  May be absolute or relative.
 A map of options.  Here are the currently supported options:
 
 * `async` - A boolean value used for `script.async`.  By default this is `true`.
+* `defer` - A boolean value used for `script.defer`.  By default this is `true`.
 * `attrs` - A map of attributes to set on the `script` node before appending it to the DOM.  By default this is empty.
 * `charset` - A string value used for `script.charset`.  By default this is `utf8`.
 * `text` - A string of text to append to the `script` node before it is appended to the DOM.  By default this is empty.
