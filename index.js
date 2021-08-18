@@ -14,6 +14,7 @@ module.exports = function load (src, opts, cb) {
   script.type = opts.type || 'text/javascript'
   script.charset = opts.charset || 'utf8';
   script.async = 'async' in opts ? !!opts.async : true
+  script.defer = 'defer' in opts ? !!opts.defer : true
   script.src = src
 
   if (opts.attrs) {
